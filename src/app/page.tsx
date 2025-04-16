@@ -1,5 +1,5 @@
 import { IndexBanners } from '@/components/index-banners';
-import { Header } from '@/components/layout';
+import { Footer, Header } from '@/components/layout';
 import { ProductsList } from '@/components/products/products-list';
 import { ServicesSection } from '@/components/services-section';
 
@@ -14,6 +14,7 @@ export default () => {
                     <ProductsList />
                 </div>
             </main>
+            <Footer />
         </>
     );
 };
