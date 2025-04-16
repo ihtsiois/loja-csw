@@ -1,22 +1,27 @@
-const ProductsList = () => {
+import { Product } from '@/data/products';
+import Link from 'next/link';
+
+const ProductsList = ({ data }: { data: Product[] }) => {
+    const currency = new Intl.NumberFormat('pr-BR', { style: 'currency', currency: 'BRL' });
+
     return (
         <div className="grid grid-cols-5 gap-4">
-            {Array.from({ length: 20 }).map((_, k) => (
-                <div key={k} className="border rounded-md overflow-hidden">
-                    <img src="https://fakeimg.pl/200x200/f5f4f4/909090" className="w-full" />
-                    <div className="px-3 py-2 grid gap-1">
-                        <span className="font-medium text-sm text-muted-foreground">
-                            Manta Líquida Quartzolit 18kg Branca
-                        </span>
-                        <span className="text-xs text-muted-foreground">{`Cod.: ${Math.floor(
-                            Math.random() * 999999999
-                        )}`}</span>
+            {data.map((product, k) => (
+                <Link
+                    href={`/products/${product.slug}`}
+                    key={k}
+                    className="border rounded-md flex flex-col overflow-hidden"
+                >
+                    <img src={product.thumbnail_src} alt={product.name} className="w-full" />
+                    <div className="flex-1 px-3 py-2">
+                        <span className="font-medium text-sm text-muted-foreground block">{product.name}</span>
+                        <span className="text-xs text-muted-foreground">{`Ref.: ${product.ref}`}</span>
                     </div>
                     <div className="border-b-4 border-b-lime-400 px-3 py-2 font-medium">
-                        <span>R$ 2,00</span>
-                        <span className="text-sm">&nbsp;cada</span>
+                        <span>{currency.format(product.price)}</span>
+                        <span className="text-sm">&nbsp;{product.unit}</span>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     );
