@@ -1,6 +1,10 @@
-import { Footer, Header } from '@/components/layout';
-import { products } from '@/data/products';
 import { notFound } from 'next/navigation';
+import { Footer, Header } from '@/components/layout';
+import { ProductCTA } from '@/components/products/product-cta';
+import { ProductImages } from '@/components/products/product-images';
+import { products } from '@/data/products';
+import { ProductDescription } from '@/components/products/product-description';
+import { ProductMetadata } from '@/components/products/product-metadata';
 
 export default async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params;
@@ -10,8 +14,13 @@ export default async ({ params }: { params: Promise<{ slug: string }> }) => {
     return (
         <>
             <Header />
-            <main className="space-y-6">
-                <div className="px-6 max-w-5xl mx-auto">{JSON.stringify(product)}</div>
+            <main className="p-6 max-w-5xl mx-auto space-y-8">
+                <div className="grid grid-cols-2 gap-6">
+                    <ProductImages product={product} />
+                    <ProductCTA product={product} />
+                </div>
+                <ProductDescription product={product} />
+                <ProductMetadata product={product} />
             </main>
             <Footer />
         </>
