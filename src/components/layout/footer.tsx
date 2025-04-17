@@ -35,7 +35,9 @@ const Footer = () => {
         <footer className="mt-8 bg-muted text-muted-foreground border-t">
             <div className="max-w-5xl mx-auto px-6 py-8 grid grid-cols-5 gap-8">
                 <div className="col-span-2 space-y-2">
-                    <img src="/static/images/footer-logo.svg" className="h-12" />
+                    <Link href="/">
+                        <img src="/static/images/footer-logo.svg" className="h-12" />
+                    </Link>
                 </div>
                 {groups.map((group, k) => (
                     <div key={k} className="space-y-4">
