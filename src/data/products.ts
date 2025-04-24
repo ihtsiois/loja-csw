@@ -12,21 +12,6 @@ export type Product = {
 
 export const products: Product[] = [
     {
-        slug: 'isabele-comendo-pacoca',
-        ref: '12312312312',
-        thumbnail_src: '/product-data/4731daa2-5bcc-48df-abbc-df26ac05a655.jpeg',
-        images: ['/product-data/4731daa2-5bcc-48df-abbc-df26ac05a655.jpeg'],
-        name: 'Isabele Comendo Paçokinha',
-        description: 'Isabele degustando muito uma paçokinha deliciosa da rose amada.',
-        price: 1.5,
-        unit: 'un.',
-        metadata: [
-            { key: 'Marca', value: 'Paçokinha' },
-            { key: 'Ação', value: 'Comendo' },
-            { key: 'Acessório', value: 'Paçoca' },
-        ],
-    },
-    {
         slug: 'cimento-comum-cpiv-50kg-votorantim',
         ref: '50902129',
         thumbnail_src: '/product-data/59ba98e8-87d7-43da-af0b-fd3ccfe28c18.webp',
