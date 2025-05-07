@@ -1,14 +1,15 @@
 import { Product } from '@/data/products';
-import { Button } from '../ui/button';
-import { PlusIcon } from 'lucide-react';
+import { ProductAddCart } from './product-cart-add';
 
 const ProductCTA = ({ product }: { product: Product }) => {
     const currency = new Intl.NumberFormat('pr-BR', { style: 'currency', currency: 'BRL' });
 
     return (
-        <div className="py-5 flex flex-col gap-4">
-            <span className="text-sm text-muted-foreground">{`Ref.: ${product.ref}`}</span>
-            <h1 className="text-4xl font-medium">{product.name}</h1>
+        <div className="py-5 flex flex-col gap-8">
+            <div>
+                <span className="text-sm text-muted-foreground">{`Ref.: ${product.ref}`}</span>
+                <h1 className="text-4xl font-medium">{product.name}</h1>
+            </div>
             <div className="grid">
                 <span className="text-sm text-muted-foreground">
                     Vendido e Entregue por <span className="font-medium">Compra Certa</span>.
@@ -22,13 +23,7 @@ const ProductCTA = ({ product }: { product: Product }) => {
                 </div>
             </div>
             <div className="grid space-y-2">
-                <Button>
-                    <span>Comprar Agora</span>
-                </Button>
-                <Button variant="secondary">
-                    <PlusIcon />
-                    <span>Adicionar ao Carrinho</span>
-                </Button>
+                <ProductAddCart product={product} />
             </div>
         </div>
     );
