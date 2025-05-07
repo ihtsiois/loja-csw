@@ -5,7 +5,7 @@ import { PhoneCall } from 'lucide-react';
 export const BannerContact = () => {
     return (
         <section
-            id="cta-about"
+            id="cta-contact"
             className="max-w-5xl mx-auto my-10 p-12 bg-background border rounded-md shadow flex items-center justify-center space-x-6"
         >
             <img src="/static/images/contact.svg" alt="Nossa História" className="h-32" />
@@ -16,7 +16,7 @@ export const BannerContact = () => {
                 </div>
                 <div className="flex">
                     <Button variant="default" className="w-full" asChild>
-                        <Link href="/about">
+                        <Link href="/contact">
                             <PhoneCall />
                             <span>Entrar em Contato</span>
                         </Link>
